@@ -1,0 +1,97 @@
+body {
+  background: white;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.singInForm {
+  width: 360px;
+  height: 500px;
+  background-color: white;
+  margin: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.firstHeader{
+  font-size: 38px;
+  font-family: Apple Chancery, cursive;
+  font-weight: 100;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.logInForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 50px;
+}
+
+.successMessage {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  background-color: green;
+  padding: 8px;
+  color: white;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: red;
+  margin-top: -18px;
+  margin-bottom: 20px;
+}
+
+.form {
+  margin: -10px 0px 1px 0px;
+  padding: 10px;
+  font-size: 16px;
+  border: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+  background: #f2f2f2;
+}
+
+p {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+a {
+  color: red;
+  text-decoration: none;
+}
+
+#login {
+  color: black;
+  margin-top: 0px;
+}
+
+#logIn {
+  color: blue;
+}
+
+button {
+  background: blue;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+button:disabled {
+  cursor: default;
+}

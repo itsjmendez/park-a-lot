@@ -15,6 +15,7 @@ export const Navbar = () => {
           <E.NavLink to="/payments">Payments</E.NavLink>
           <E.NavLink to="/reservation">Reservation</E.NavLink>
           <E.NavLink to="/subscription">Subscription</E.NavLink>
+          <E.NavLink to="/forgotPassword">Forgot Password?</E.NavLink>
         </E.NavMenu>
         <E.NavBtn>
           <E.NavBtnLink to="/login">Log In</E.NavBtnLink>
