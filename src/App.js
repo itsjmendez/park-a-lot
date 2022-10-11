@@ -9,7 +9,7 @@ import { Payments } from './pages/Payments/Index';
 import { Subscription } from './pages/Subscription/Index';
 import { Navbar } from './layouts/Navbar/Index';
 import { Footer } from './layouts/Footer/Index';
-import { SignUp } from './pages/Signup/Index';
+import SignUp from './pages/Signup/Index';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/subscription" element={<Subscription />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
