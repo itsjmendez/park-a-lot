@@ -2,11 +2,29 @@ import React from 'react';
 import * as S from './styles';
 import PropTypes from 'prop-types';
 import { Button } from '../../components/Button';
+import { createAccoutAPI } from '../../services/createAccoutAPI';
+import { useState } from 'react';
+
+const newUserTemplate = {
+  name: '',
+  license_plate: '',
+  email: '',
+  phone_number: '',
+  username: '',
+  password: '',
+};
 
 const SignUp = ({ formInputs }) => {
-  const handleSignUp = (event) => {
-    event.preventDefault();
-    console.log('test');
+  const [newUser, setNewUser] = useState(newUserTemplate);
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    createAccoutAPI(newUser);
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setNewUser({ ...newUser, [e.target.name]: value });
   };
 
   return (
@@ -14,8 +32,14 @@ const SignUp = ({ formInputs }) => {
       <S.Container>
         <S.FormContainer>
           <form>
-            {formInputs.map((input) => (
-              <FormItem key={input.id} label={input.label} type={input.type} />
+            {formInputs.map((input, index) => (
+              <FormItem
+                key={index}
+                name={input.name}
+                label={input.label}
+                type={input.type}
+                onChangeInput={handleInputChange}
+              />
             ))}
             <Button onClick={handleSignUp}>Sign up</Button>
           </form>
@@ -27,7 +51,7 @@ const SignUp = ({ formInputs }) => {
 
 SignUp.protoTypes = {
   formInputs: PropTypes.shape({
-    id: PropTypes.string,
+    name: PropTypes.string,
     label: PropTypes.string,
     type: PropTypes.string,
   }),
@@ -35,31 +59,35 @@ SignUp.protoTypes = {
 
 SignUp.defaultProps = {
   formInputs: [
-    { id: 'name', label: 'Name', type: 'text' },
-    { id: 'email', label: 'Email', type: 'text' },
-    { id: 'carplate', label: 'Car Plate', type: 'text' },
-    { id: 'phone', label: 'Phone', type: 'text' },
-    { id: 'username', label: 'Username', type: 'text' },
-    { id: 'password', label: 'Password', type: 'text' },
+    { name: 'name', label: 'Name', type: 'text' },
+    { name: 'email', label: 'Email', type: 'text' },
+    { name: 'license_plate', label: 'Car Plate', type: 'text' },
+    { name: 'phone_number', label: 'Phone', type: 'text' },
+    { name: 'username', label: 'Username', type: 'text' },
+    { name: 'password', label: 'Password', type: 'text' },
   ],
 };
 
 export default SignUp;
 
 // FormItem component might be relocated.
-const FormItem = ({ label, type }) => (
+const FormItem = ({ name, label, type, onChangeInput }) => (
   <S.FormItemContainer>
     <S.Label>{label}</S.Label>
-    <input type={type} />
+    <input name={name} type={type} onChange={onChangeInput} />
   </S.FormItemContainer>
 );
 
 FormItem.protoTypes = {
+  name: PropTypes.string,
   label: PropTypes.string,
   type: PropTypes.string,
+  onChangeInput: PropTypes.func,
 };
 
 FormItem.defaultProps = {
+  name: '',
   label: '',
   type: 'text',
+  onChangeInput: () => {},
 };
