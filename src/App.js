@@ -7,10 +7,11 @@ import { Login } from './pages/Login/Index';
 import { Reservation } from './pages/Reservation/Index';
 import { History } from './pages/History/Index';
 import { Payments } from './pages/Payments/Index';
-import { SignUp } from './pages/Signup/Index';
+// import { SignUp } from './pages/Signup/Index';
 import { Subscription } from './pages/Subscription/Index';
 import { Navbar } from './layouts/Navbar/Index';
 import { Footer } from './layouts/Footer/Index';
+import SignUp from './pages/Signup/Index';
 
 function App() {
   return (
