@@ -1,4 +1,4 @@
-body {
+/* body {
   background: white;
   display: flex;
   min-height: 100vh;
@@ -100,4 +100,4 @@ button {
 
 button:disabled {
   cursor: default;
-}
+} */

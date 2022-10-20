@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink as Link } from 'react-router-dom';
 import './ForgotPassword.css';
 
 export const ForgotPassword = () => {
@@ -40,8 +41,10 @@ export const ForgotPassword = () => {
           <button className="submit" type="submit">Send Password Reset Link</button>
           {sendLink && valid ? <div className="msg">Password Reset Link Sent!!!</div> : null}
           <p id="hrLines">Or</p>
-          <p id="create"><a className="account" href="https://my.jsu.edu/">Create New Account</a></p>  
-          <div className="login"><a className="account" href="https://my.jsu.edu/">Back To Login</a></div>
+          <p><Link to="/signup">Create New Account</Link></p>
+          {/* <p id="create"><a className="account" href="https://my.jsu.edu/">Create New Account</a></p>   */}
+          <div className="login"><Link to="/login">Back To Login</Link></div>
+          {/* <div className="login"><a className="account" href="https://my.jsu.edu/">Back To Login</a></div> */}
         </form>
       </div> 
   );

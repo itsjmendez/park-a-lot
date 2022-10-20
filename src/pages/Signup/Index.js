@@ -1,17 +1,17 @@
-import React from 'react';
-import * as S from './styles';
-import PropTypes from 'prop-types';
-import { Button } from '../../components/Button';
-import { createAccoutAPI } from '../../services/createAccoutAPI';
-import { useState } from 'react';
+import React from "react";
+import * as S from "./styles";
+import PropTypes from "prop-types";
+import { Button } from "../../components/Button";
+import { createAccoutAPI } from "../../services/createAccoutAPI";
+import { useState } from "react";
 
 const newUserTemplate = {
-  name: '',
-  license_plate: '',
-  email: '',
-  phone_number: '',
-  username: '',
-  password: '',
+  name: "",
+  license_plate: "",
+  email: "",
+  phone_number: "",
+  username: "",
+  password: "",
 };
 
 const SignUp = ({ formInputs }) => {
@@ -23,6 +23,7 @@ const SignUp = ({ formInputs }) => {
   };
 
   const handleInputChange = (e) => {
+    e.preventDefault();
     const value = e.target.value;
     setNewUser({ ...newUser, [e.target.name]: value });
   };
@@ -49,7 +50,8 @@ const SignUp = ({ formInputs }) => {
   );
 };
 
-SignUp.protoTypes = {
+SignUp.propTypes = {
+  //proptypes
   formInputs: PropTypes.shape({
     name: PropTypes.string,
     label: PropTypes.string,
@@ -59,14 +61,16 @@ SignUp.protoTypes = {
 
 SignUp.defaultProps = {
   formInputs: [
-    { name: 'name', label: 'Name', type: 'text' },
-    { name: 'email', label: 'Email', type: 'text' },
-    { name: 'license_plate', label: 'Car Plate', type: 'text' },
-    { name: 'phone_number', label: 'Phone', type: 'text' },
-    { name: 'username', label: 'Username', type: 'text' },
-    { name: 'password', label: 'Password', type: 'text' },
+    { name: "name", label: "Name", type: "text" },
+    { name: "email", label: "Email", type: "text" },
+    { name: "license_plate", label: "Car Plate", type: "text" },
+    { name: "phone_number", label: "Phone", type: "text" },
+    { name: "username", label: "Username", type: "text" },
+    { name: "password", label: "Password", type: "text" },
   ],
 };
+
+export default SignUp;
 
 // FormItem component might be relocated.
 const FormItem = ({ name, label, type, onChangeInput }) => (
@@ -84,10 +88,8 @@ FormItem.protoTypes = {
 };
 
 FormItem.defaultProps = {
-  name: '',
-  label: '',
-  type: 'text',
+  name: "",
+  label: "",
+  type: "text",
   onChangeInput: () => {},
 };
-
-export default SignUp;
