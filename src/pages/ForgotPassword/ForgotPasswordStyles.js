@@ -9,7 +9,6 @@ export const Box = styled.div`
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  // border: 1px solid #ccc;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 `;
 
@@ -29,9 +28,23 @@ export const Header = styled.h1`
   margin-bottom: -15px;
 `;
 
+export const HeaderTwo = styled.h2`
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-top: 20px;
+`;
+
+export const HeaderThree = styled.p`
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 0;
+  text-align: center;
+  margin-top: 20px;
+`;
+
 export const FormContainer = styled.div`
   padding: 24px 16px;
-  // background: #f2f2f2;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -40,7 +53,7 @@ export const FormContainer = styled.div`
 `;
 
 export const Form = styled.form`
-  margin-top: -15px;
+  margin-top: -30px;
 `;
 
 export const Span = styled.span`
@@ -49,15 +62,35 @@ export const Span = styled.span`
   color: red;
 `;
 
-export const Message = styled.p`
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  text-align: center;
-  background-color: green;
-  padding: 8px;
-  color: white;
-  line-height: 15px;
-  border-radius: 2px;
+export const HrLine = styled.p`
+  & {
+    position: relative;
+    max-width: 500px;
+    margin: 100px auto;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  &:before {
+    content: " ";
+    height: 1px;
+    width: 40%;
+    background: #4542425e;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+  }
+  &:after {
+    content: " ";
+    height: 1px;
+    width: 40%;
+    background: #4542425e;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+  }
 `;
 
 export const Paragraph = styled.p`
@@ -65,11 +98,24 @@ export const Paragraph = styled.p`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   text-align: center;
-  line-height: 40px;
+  margin-top: -10px;
+`;
+
+export const Div = styled.div`
+  padding: 6px;
+  border: 1px solid gray;
+  margin: 0;
+  text-align: center;
+  margin-top: 40px;
+  background: #f2f2f2;
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: orange;
+  }
 `;
 
 export const LinkTo = styled(Link)`
-  color: blue;
+  color: black;
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
@@ -89,4 +135,15 @@ export const Input = styled.input`
   line-height: 30px;
   border: none;
   border-radius: 4px;
+`;
+
+export const Message = styled.p`
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: none;
+  text-align: center;
+  background-color: green;
+  padding: 8px;
+  color: white;
+  border-radius: 2px;
+  margin-top: 5px;
 `;

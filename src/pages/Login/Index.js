@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "./loginStyles";
+import * as S from "./LoginStyles";
 import PropTypes from "prop-types";
 import { Button } from "../../components/Button";
 import { useState } from "react";
@@ -35,6 +35,9 @@ export const Login = ({ formInputs }) => {
         <S.Header>Park-a-lot</S.Header>
         <S.FormContainer>
           <S.Form>
+            {loggedIn && (!values.username || !values.password) ? (
+              <S.Span>Please complete the required fields.</S.Span>
+            ) : null}
             {formInputs.map((input, index) => (
               <FormItem
                 key={index}
@@ -53,6 +56,9 @@ export const Login = ({ formInputs }) => {
               New User?
               <S.LinkTo to="/signup"> Sign up</S.LinkTo>
             </S.Paragraph>
+            {loggedIn && valid ? (
+              <S.Message>You are logged in!</S.Message>
+            ) : null}
           </S.Form>
         </S.FormContainer>
       </S.Container>
@@ -71,7 +77,12 @@ Login.propTypes = {
 
 Login.defaultProps = {
   formInputs: [
-    { name: "name", label: "Username", type: "text", placeholder: "Username" },
+    {
+      name: "username",
+      label: "Username",
+      type: "text",
+      placeholder: "Username",
+    },
     {
       name: "password",
       label: "Password",
@@ -84,12 +95,13 @@ Login.defaultProps = {
 export default Login;
 
 // FormItem component might be relocated.
-const FormItem = ({ name, type, placeholder, onChangeInput }) => (
+const FormItem = ({ name, type, placeholder, size, onChangeInput }) => (
   <S.FormItemContainer>
-    <input
+    <S.Input
       name={name}
       type={type}
       placeholder={placeholder}
+      size={size}
       onChange={onChangeInput}
     />
   </S.FormItemContainer>
@@ -110,4 +122,3 @@ FormItem.defaultProps = {
   placeholder: "",
   onChangeInput: () => {},
 };
-

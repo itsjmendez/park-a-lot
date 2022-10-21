@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Button = styled.button`
   width: 100%;
   margin-top: 10px;
-  border-radius: 4px;
+  border-radius: 6px;
   background: blue;
   color: white;
   outline: none;
@@ -11,9 +11,9 @@ export const Button = styled.button`
   cursor: pointer;
   justify-content: center;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
+  line-height: 30px;
   transition: all 0.2s ease-in-out;
   &:hover {
     transition: all 0.2s ease-in-out;

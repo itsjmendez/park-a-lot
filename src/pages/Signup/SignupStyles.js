@@ -9,7 +9,6 @@ export const Box = styled.div`
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  // border: 1px solid #ccc;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 `;
 
@@ -63,9 +62,9 @@ export const Message = styled.p`
 export const Paragraph = styled.p`
   color: black;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
-  line-height: 40px;
+  margin-top: 10px;
 `;
 
 export const LinkTo = styled(Link)`
