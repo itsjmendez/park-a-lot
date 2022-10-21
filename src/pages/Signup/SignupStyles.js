@@ -48,17 +48,6 @@ export const Span = styled.span`
   color: red;
 `;
 
-export const Message = styled.p`
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  text-align: center;
-  background-color: green;
-  padding: 8px;
-  color: white;
-  line-height: 15px;
-  border-radius: 2px;
-`;
-
 export const Paragraph = styled.p`
   color: black;
   font-family: Arial, Helvetica, sans-serif;
