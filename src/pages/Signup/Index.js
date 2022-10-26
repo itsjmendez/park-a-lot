@@ -64,7 +64,7 @@ SignUp.defaultProps = {
     { name: 'license_plate', label: 'Car Plate', type: 'text' },
     { name: 'phone_number', label: 'Phone', type: 'text' },
     { name: 'username', label: 'Username', type: 'text' },
-    { name: 'password', label: 'Password', type: 'text' },
+    { name: 'password', label: 'Password', type: 'password' },
   ],
 };
 
