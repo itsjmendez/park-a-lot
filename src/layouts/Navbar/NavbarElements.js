@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const Nav = styled.nav`
   background: #fff;
-  border-bottom: 1px solid;
+  // border-bottom: 1px solid;
   height: 85px;
   display: flex;
   justify-content: center;
