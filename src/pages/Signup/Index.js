@@ -66,9 +66,9 @@ const SignUp = ({ formInputs }) => {
               Have an account?
               <S.LinkTo to="/login"> Log in</S.LinkTo>
             </S.Paragraph>
-            {signedUp && valid ? (
+            {/* {signedUp && valid ? (
               <S.Message>You are logged in!</S.Message>
-            ) : null}
+            ) : null} */}
           </S.Form>
         </S.FormContainer>
       </S.Container>
