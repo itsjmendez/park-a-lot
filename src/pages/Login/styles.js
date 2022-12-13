@@ -16,6 +16,7 @@ export const FormContainer = styled.div`
   padding: 24px 16px;
   background-color: lightgrey;
   border-radius: 4px;
+  display: flex;
   align-items: center;
   justify-content: center;
 `;

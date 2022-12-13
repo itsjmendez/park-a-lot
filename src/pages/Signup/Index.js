@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './styles';
 import PropTypes from 'prop-types';
 import { Button } from '../../components/Button';
-import { createAccoutAPI } from '../../services/createAccoutAPI';
+import { createAccountAPI } from '../../services/createAccountAPI';
 import { useState } from 'react';
 
 const newUserTemplate = {
@@ -19,7 +19,7 @@ const SignUp = ({ formInputs }) => {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    createAccoutAPI(newUser);
+    createAccountAPI(newUser);
   };
 
   const handleInputChange = (e) => {
@@ -31,6 +31,7 @@ const SignUp = ({ formInputs }) => {
     <S.Box>
       <S.Container>
         <S.FormContainer>
+          <h1>Sign Up</h1>
           <form>
             {formInputs.map((input, index) => (
               <FormItem

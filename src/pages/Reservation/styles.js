@@ -26,7 +26,9 @@ export const FormItemContainer = styled.div`
 `;
 
 export const Label = styled.label`
-  /* width: 100px; */
-  display: flex;
   justify-content: start;
+`;
+
+export const Input = styled.input`
+  margin: 0 16px 0 0;
 `;
