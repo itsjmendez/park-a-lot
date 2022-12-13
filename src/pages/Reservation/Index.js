@@ -12,6 +12,9 @@ const Reservation = () => {
   const [entryTime, setEntryTime] = useState(0);
   const [exitTime, setExitTime] = useState(0);
   const [parkingSpot, setparkingSpot] = useState(6);
+  const [resEntry, setResEntry] = useState('');
+  const [resExit, setResExit] = useState('');
+  const [reservationFlag, setReservationFlag] = useState(false);
 
   const createReservation = async (e) => {
     console.log(
@@ -37,6 +40,14 @@ const Reservation = () => {
           },
         }
       );
+      console.log(JSON.stringify(response?.data));
+      const data = response?.data;
+      const resEntryTime = response?.data?.start_time;
+      const resExitTime = response?.data?.exit_time;
+      const parkSpotNum = response?.data?.parking_spot;
+      setResEntry(resEntryTime);
+      setResExit(resExitTime);
+      setReservationFlag(true);
     } catch (err) {
       console.log(err);
     }
@@ -62,31 +73,60 @@ const Reservation = () => {
   };
 
   return (
-    <S.Box>
-      <S.Container>
-        <S.FormContainer>
-          <h1>Make a Reservation</h1>
-          <form onSubmit={createReservation}>
-            <S.Label htmlFor="timeEntry">Entry Time:</S.Label>
-            <S.Input
-              type="datetime-local"
-              id="entry-time"
-              autoComplete="off"
-              onChange={(e) => setEntryTime(localTimeToUnix(e.target.value))}
-              required
-            />
-            <S.Label htmlFor="exit-time">Exit Time:</S.Label>
-            <S.Input
-              type="datetime-local"
-              id="exit-time"
-              onChange={(e) => setExitTime(localTimeToUnix(e.target.value))}
-              required
-            />
-            <Button>Reserve</Button>
-          </form>
-        </S.FormContainer>
-      </S.Container>
-    </S.Box>
+    <>
+      <S.Box>
+        <S.Container>
+          <S.FormContainer>
+            <h1>Make a Reservation</h1>
+            <form onSubmit={createReservation}>
+              <S.Label htmlFor="timeEntry">Entry Time:</S.Label>
+              <S.Input
+                type="datetime-local"
+                id="entry-time"
+                autoComplete="off"
+                onChange={(e) => setEntryTime(localTimeToUnix(e.target.value))}
+                required
+              />
+              <S.Label htmlFor="exit-time">Exit Time:</S.Label>
+              <S.Input
+                type="datetime-local"
+                id="exit-time"
+                onChange={(e) => setExitTime(localTimeToUnix(e.target.value))}
+                required
+              />
+              <Button>Reserve</Button>
+            </form>
+          </S.FormContainer>
+        </S.Container>
+      </S.Box>
+      {reservationFlag && <ReservationDash entry={resEntry} exit={resExit} />}
+    </>
+  );
+};
+
+const ReservationDash = ({ entry, exit }) => {
+  const entryDate = new Date(entry);
+  const exitDate = new Date(exit);
+
+  console.log(entryDate);
+  console.log(exitDate);
+
+  return (
+    <>
+      <S.ReservationBox>
+        <S.Container>
+          <S.ResContainer>
+            <S.HeaderReservedSpots>Reservation</S.HeaderReservedSpots>
+            <S.DatesContainer>
+              <S.ReservedLabel>Entry Time:</S.ReservedLabel>
+              <S.DateLabel>{entryDate.toString()}</S.DateLabel>
+              <S.ReservedLabel>Exit Time:</S.ReservedLabel>
+              <S.DateLabel>{exitDate.toString()}</S.DateLabel>
+            </S.DatesContainer>
+          </S.ResContainer>
+        </S.Container>
+      </S.ReservationBox>
+    </>
   );
 };
 
